@@ -8,7 +8,7 @@ module RedisBrowser
       jsEnv = {
         root_path: root_path,
         connections: settings.connections,
-        connection: params[:connection] || settings.connections.keys.first
+        connection: params[:connection] || settings.connections.keys.first,
         delimiter: settings.delimiter
       }
 
