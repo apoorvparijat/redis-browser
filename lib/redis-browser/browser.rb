@@ -1,7 +1,9 @@
+require 'debugger'
 module RedisBrowser
   class Browser
     def initialize(conn = {}, delimiter)
       @conn = conn
+      debugger
       @delimiter = Regexp.new delimiter
     end
 
