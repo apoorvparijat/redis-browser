@@ -9,6 +9,7 @@ module RedisBrowser
         root_path: root_path,
         connections: settings.connections,
         connection: params[:connection] || settings.connections.keys.first
+        delimiter: settings.delimiter
       }
 
       "jsEnv = #{MultiJson.dump(jsEnv)};"
@@ -54,7 +55,7 @@ module RedisBrowser
     def browser
       conn = settings.connections[params[:connection]]
       conn = {url: conn} unless conn.is_a?(Hash)
-      @browser ||= Browser.new(conn)
+      @browser ||= Browser.new(conn, settings.delimiter)
     end
   end
 end

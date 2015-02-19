@@ -1,7 +1,8 @@
 module RedisBrowser
   class Browser
-    def initialize(conn = {})
+    def initialize(conn = {}, delimiter)
       @conn = conn
+      @delimiter = Regexp.new delimiter
     end
 
     def split_key(key)
