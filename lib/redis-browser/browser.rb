@@ -1,14 +1,11 @@
-require 'debugger'
 module RedisBrowser
   class Browser
-    def initialize(conn = {}, delimiter)
+    def initialize(conn = {})
       @conn = conn
-      debugger
-      @delimiter = Regexp.new delimiter
     end
 
     def split_key(key)
-      if key =~ /^(.+?)(@delimiter).+$/
+      if key =~ /^(.+?)(:|_).+$/
         [$1, $2]
       else
         [key, nil]
