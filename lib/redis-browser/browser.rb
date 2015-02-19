@@ -6,7 +6,7 @@ module RedisBrowser
     end
 
     def split_key(key)
-      if key =~ /^(.+?)(:+|\/+|\.+).+$/
+      if key =~ @delimiter
         [$1, $2]
       else
         [key, nil]
